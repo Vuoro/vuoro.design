@@ -1,0 +1,213 @@
+@charset "utf-8";
+@viewport {width: device-width;}
+
+//
+// General variables
+
+$font-size-multiplier: 16 / 16;
+$line: 22 / 16 * 1rem;
+$max-width: $line * 55;
+
+$main-easing:        cubic-bezier(0.236, 0.000, 0.236, 1.000);
+$reverse-easing:     cubic-bezier(0.618, 0.000, 0.236, 1.000);
+$loop-easing:        ease-in-out;
+
+$main-time:  200ms;
+$short-time: $main-time / 1.618;
+$loop-time:  $main-time*30;
+
+$spacing-xxs: $line*0.250;
+$spacing-xs:  $line*0.375;
+$spacing-s:   $line*0.500;
+$spacing:     $line*1.000;
+$spacing-l:   $line*1.500;
+$spacing-xl:  $line*2.000;
+$spacing-xxl: $line*2.500;
+
+$hairline: 0.075em;
+$underline-offset: 1.15em;
+
+$main-rounding: $line*0.250;
+
+//
+// Colors
+
+$hue: 202;
+
+$hue-opposite: $hue + (360/2);
+$hue-analog:   $hue - (360/8);
+$hue-analog-2: $hue + (360/8);
+$hue-split:    $hue + (360/2) - (360/8);
+$hue-split-2:  $hue + (360/2) + (360/8);
+$hue-triad:    $hue + (360/3);
+$hue-triad-2:  $hue + (360/3*2);
+$hue-square:   $hue + (360/4);
+$hue-square-2: $hue + (360/4*3);
+
+$hue-bg:  $hue;
+$hue-fg:  $hue-split-2;
+$hue-alt: $hue-split;
+
+$colorfulness: 0.0;
+
+$dimmer:     hsl($hue-bg, 100%*$colorfulness, 05.6%);
+$emphasizer: hsl($hue-fg, 100%*$colorfulness, 94.4%);
+
+$background:    hsl($hue-bg,  50.0%*$colorfulness,  9.0%);
+$body:          hsl($hue-fg,   9.0%*$colorfulness, 100%);
+$alt-body:      hsl($hue-alt,  9.0%*$colorfulness, 61.8%);
+
+$highlight:     hsl($hue-fg,  76.4%, 61.8%);
+$alt-highlight: hsl($hue-alt, 76.4%, 61.8%);
+
+$off-background: mix($emphasizer, $background,    14.6%);
+$border:         mix($emphasizer, $background,    50.0%);
+
+$aside:          mix($dimmer,     $body,          23.6%);
+$alt-aside:      mix($dimmer,     $alt-body,      23.6%);
+
+$strong:         mix($emphasizer, $body,          23.6%);
+$alt-strong:     mix($emphasizer, $alt-body,      23.6%);
+
+//
+// Imports
+
+@import "reset";
+@import "fonts";
+@import "classes";
+
+//
+// Typography
+
+html {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 200;
+}
+
+.underlined {
+  background-image: linear-gradient(rgba($body, 0.382), rgba($body, 0.382));
+  background-size: $hairline $hairline;
+  background-position: 0 $underline-offset;
+  background-repeat: repeat-x;
+
+  &:hover,
+  &:focus {
+    background-image: linear-gradient($body, $body);
+  }
+
+  &:active,
+  &.active {
+    background-image: none;
+  }
+}
+
+.size-0 { font-size: 0.618em; }
+.size-1 { font-size: 1.000em; }
+.size-2 { font-size: 1.236em; }
+.size-3 { font-size: 1.382em; }
+.size-4 { font-size: 1.618em; }
+.size-5 { font-size: 2.150em; }
+.size-6 { font-size: 2.618em; }
+.size-7 { font-size: 4.236em; }
+
+.strong {
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+
+  }
+
+  &:active {
+
+  }
+}
+
+::selection {
+  background: $highlight;
+  color: $strong;
+}
+
+::placeholder {
+  color: $aside;
+}
+
+//
+// Root styles
+
+* {
+  transition-property: transform, opacity;
+  transition-duration: $main-time;
+  transition-timing-function: $main-easing;
+}
+
+html {
+  font-size: 100% * $font-size-multiplier;
+  line-height: 1.09;
+  background: $background;
+  color: $body;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+  margin: 0 auto;
+  max-width: 100%;
+  // overflow-y: visible;
+}
+
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+
+$logo-width: 94.4vw;
+$logo-height: 94.4vh;
+
+.site {
+  height: 100vh;
+  min-height: 50vw;
+  font-size: 4vw;
+}
+
+.all-caps {
+  letter-spacing: 1px;
+}
+
+.half {
+  width: 50%;
+}
+
+.third {
+  width: 33.333%;
+}
+
+.ui-padding {
+  padding: (100 - $logo-width) / 2;
+}
+
+.logo {
+  margin: auto;
+  display: block;
+  position: absolute;
+  left: 0; top: 0; right: 0; bottom: 0;
+  margin: auto;
+  width: $logo-width;
+  height: $logo-height;
+}
+
+.tile-top {
+  fill: $body;
+}
+
+.tile-left {
+  fill: brown;
+}
+
+.tile-right {
+  fill: darken(brown, 23.6%);
+}
+
+// animations with dips to black
