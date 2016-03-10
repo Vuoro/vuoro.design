@@ -123,7 +123,7 @@ a {
 }
 
 ::selection {
-  background: $highlight;
+  background: $aside;
   color: $strong;
 }
 
@@ -146,12 +146,14 @@ html {
   background: $background;
   color: $body;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+  height: 100%;
 }
 
 body {
   margin: 0 auto;
   max-width: 100%;
   // overflow-y: visible;
+  height: 100%;
 }
 
 /////////////////////////////////////////////////////////
@@ -164,7 +166,7 @@ $logo-height: 91vh;
 $ui-padding: (100 - $logo-width) / 2;
 
 .site {
-  height: 100vh;
+  height: 100%;
   min-height: 50vw;
   font-size: 3.95vw;
   text-rendering: optimizeLegibility;
