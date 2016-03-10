@@ -25,14 +25,14 @@ $spacing-xl:  $line*2.000;
 $spacing-xxl: $line*2.500;
 
 $hairline: 0.075em;
-$underline-offset: 1.15em;
+$underline-offset: 1.05em;
 
 $main-rounding: $line*0.250;
 
 //
 // Colors
 
-$hue: 202;
+$hue: 204;
 
 $hue-opposite: $hue + (360/2);
 $hue-analog:   $hue - (360/8);
@@ -80,8 +80,8 @@ $alt-strong:     mix($emphasizer, $alt-body,      23.6%);
 // Typography
 
 html {
-  font-family: "Fira Sans", sans-serif;
-  font-weight: 200;
+  font-family: "Domaine", serif;
+  font-weight: 500;
 }
 
 .underlined {
@@ -109,10 +109,6 @@ html {
 .size-5 { font-size: 2.150em; }
 .size-6 { font-size: 2.618em; }
 .size-7 { font-size: 4.236em; }
-
-.strong {
-  font-weight: 600;
-}
 
 a {
   text-decoration: none;
@@ -198,16 +194,41 @@ $logo-height: 94.4vh;
   height: $logo-height;
 }
 
+//
+// Animations with dips to black
+
+html {
+  animation: background $loop-time linear;
+  // background: rgb(39,101,141);
+}
+
+@keyframes background {
+
+}
+
 .tile-top {
   fill: $body;
+  animation: tileTop $loop-time linear;
+}
+
+@keyframes tileTop {
+
 }
 
 .tile-left {
-  fill: brown;
+  fill: $background;
+  animation: tileLeft $loop-time linear;
+}
+
+@keyframes tileLeft {
+
 }
 
 .tile-right {
-  fill: darken(brown, 23.6%);
+  fill: $off-background;
+  animation: tileRight $loop-time linear;
 }
 
-// animations with dips to black
+@keyframes tileRight {
+
+}
