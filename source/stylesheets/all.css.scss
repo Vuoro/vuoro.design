@@ -164,12 +164,15 @@ $logo-height: 91vh;
 $ui-padding: (100 - $logo-width) / 2;
 
 .site {
-  position: relative;
   height: 100vh;
   min-height: 50vw;
   font-size: 3.95vw;
   text-rendering: optimizeLegibility;
   color: $strong;
+}
+
+.relative {
+  position: relative;
 }
 
 .all-caps {
